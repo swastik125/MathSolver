@@ -1,0 +1,15 @@
+ipykernel
+langchain
+python-dotenv
+langchain_community
+wikipedia
+python-dotenv
+streamlit
+langchain-ollama
+langchain-groq
+langchain_core
+unstructured
+numpy
+sumpy
+scipy
+numexpr
