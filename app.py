@@ -4,8 +4,6 @@ from langchain.prompts import PromptTemplate
 from langchain_groq import ChatGroq
 from langchain.chains import LLMMathChain , LLMChain
 from langchain_experimental.tools.python.tool import PythonREPLTool
-from langchain_huggingface import HuggingFaceEndpoint
-
 from langchain.agents.agent_types import AgentType
 from langchain.agents import Tool,initialize_agent
 from langchain_community.utilities import WikipediaAPIWrapper
@@ -13,15 +11,13 @@ from langchain.callbacks import StreamlitCallbackHandler
 import os
 from dotenv import load_dotenv
 load_dotenv()
-
 groq_api_key= os.getenv("GROQ_API_KEY")
 llm=ChatGroq(groq_api_key=groq_api_key,model_name="gemma2-9b-it")
-# repo_id="google/gemma-3-270m-it"
-# llm=HuggingFaceEndpoint(repo_id=repo_id,task="text-generation", token=os.getenv("HF_KEY"))
 
 st.set_page_config(page_title="Text to Math Problem Solver",page_icon="🦜️")
 st.title("Text to Math Problems Solver")
-
+with st.sidebar:
+    groq_api_key=st.text_input("Groq API Key",value="",type="password")
     
 
 ## Initialize Tools
